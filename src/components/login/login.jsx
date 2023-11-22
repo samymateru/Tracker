@@ -73,7 +73,6 @@ const Login = () => {
         });
         if (response.ok) {
           token = await response.text();
-          console.log(token)
         }
       } catch (error) {
         token = '';

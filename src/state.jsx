@@ -1,17 +1,4 @@
-const devices = [
-        {
-        id: 0,
-        name: "string",
-        uniqueId: "string",
-        status: "string",
-        disabled: true,
-        lastUpdate: "2019-08-24T14:15:22Z",
-        positionId: 0,
-        groupId: 0,
-        phone: "string",
-        model: "string",
-        contact: "string",
-        category: "string",
-        attribute: { }
-        },
-]
+import { signal } from "@preact/signals-react"
+export let devices = signal([])
+
+export let user = signal({"sam": "sam"})
