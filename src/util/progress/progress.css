@@ -1,0 +1,43 @@
+.box{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    background-color: black;
+    animation: animate 2s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .box::before{
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #387993 0%, #387993 5%, transparent 5%, transparent 40%, #387993  50%);
+    animation: animate 0.8s linear infinite;
+  }
+
+  .box::after{
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    inset: 5px;
+    background-color: black;
+  }
+  @property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes animate{
+    0%{
+      --a: 0deg;  
+    }
+    100%{
+      --a: 360deg;
+    }
+  }

@@ -1,0 +1,6 @@
+:root{
+    --primary-color: white;
+    --hover-background: rgb(68, 65, 65);
+    --active-state: rgb(73, 43, 76);
+    --sidebar-width: 370px;
+}

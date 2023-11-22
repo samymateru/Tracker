@@ -1,0 +1,130 @@
+.device-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+}
+
+.device-head{
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    gap: 1rem;
+}
+
+.device-head svg{
+    width: 24px;
+    aspect-ratio: 1 / 1;
+   
+}
+
+.device-search{
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+}
+
+.device-search svg{
+    width: 24px;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
+.device-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    padding: 0.3rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.device-btn:hover{
+    background-color: var(--hover-background);
+}
+
+.device-head input{
+    color: rgb(233, 233, 233);
+    padding: 0.5rem;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    border: none; 
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #921f02, #0420bc, rgb(204, 9, 165));
+    border-image-slice: 1;
+
+}
+
+.device-item ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.device-item ul li{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.device-item ul li::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+   
+}
+
+.device-item ul li:hover::before{
+    background: linear-gradient(to right, #8c0360, #9f4001, white);
+
+  
+}
+
+.device-item ul li:hover{
+    background-color: var(--hover-background);
+    scale: 0.95;
+}
+
+.device-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+}
+
+.device-name{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+
+
+.device-item span:first-child{
+    color: rgb(174, 136, 48);
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.device-item span:nth-child(2){
+    color: rgb(155, 155, 155);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+}
