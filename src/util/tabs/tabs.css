@@ -14,11 +14,11 @@ input {
   --height: 58px;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  width: 370px;
+  width: 100%;
   min-height: 100svh;
   position: relative;
   background-color: rgb(119, 119, 119);
+  position: absolute;
 }
 
 .TabsList {

@@ -56,3 +56,30 @@
     color: antiquewhite;
     font-family:'Times New Roman', Times, serif;
 }
+
+.report-nav{
+    display: flex;
+    padding-inline: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.report-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    padding: 0.3rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.report-btn:hover{
+    background-color: var(--hover-background);
+}
+.report-btn svg{
+    width: 24px;
+    aspect-ratio: 1 / 1;
+}

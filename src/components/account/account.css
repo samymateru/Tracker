@@ -75,3 +75,23 @@
 .account-item ul li:not(:first-child) div:first-child span{
     color: rgb(174, 136, 48);
 }
+
+.account-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    padding: 0.3rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.account-btn:hover{
+    background-color: var(--hover-background);
+}
+.account-btn svg{
+    width: 24px;
+    aspect-ratio: 1 / 1;
+}

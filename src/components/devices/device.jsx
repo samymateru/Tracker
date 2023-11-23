@@ -1,6 +1,7 @@
 import "./device.css"
 import { devices } from "../../state";
 import AddDevice from "../../util/addDevice/addDevice";
+import { is_sidebar_open } from "../../state";
 function Device() {
     return ( 
         <div className="device-container">
@@ -9,7 +10,7 @@ function Device() {
                     <AddDevice />
                     <input type="text" autoComplete="" placeholder="Search devices"/>
                 </div>
-                <button type="button" className="device-btn">
+                <button type="button" className="device-btn" onClick={() => is_sidebar_open.value = false}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
