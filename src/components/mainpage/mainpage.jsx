@@ -1,6 +1,6 @@
 import "./mainpage.css"
 import Tab from "../../util/tabs/tabs";
-import { is_sidebar_open } from "../../state";
+import { popups } from "../../state";
 
 
 
@@ -8,11 +8,11 @@ function Mainpage() {
 
     return ( 
         <>  
-            <div className="sidebar" style={{left: is_sidebar_open.value ? "0": "-100%"}}>
+            <div className="sidebar" style={{top: popups.value.is_sidebar_open ? "0": "calc(-100svh - 1rem)"}}>
                 <Tab /> 
             </div>
             <section className="main-app">
-                <button type="button" className="main-app-btn" onClick={() => is_sidebar_open.value = true}>
+                <button type="button" className="main-app-btn" onClick={() => popups.value = {...popups.value, is_sidebar_open: true}}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>

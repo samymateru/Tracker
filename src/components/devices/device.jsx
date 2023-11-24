@@ -1,8 +1,16 @@
 import "./device.css"
 import { devices } from "../../state";
 import AddDevice from "../../util/addDevice/addDevice";
-import { is_sidebar_open } from "../../state";
+import { popups } from "../../state";
 function Device() {
+    function handle_btn_click(e){
+        popups.value = {...popups.value, is_device_pop_open: true}
+        const sidebar = document.querySelector(".sidebar");
+        if(sidebar.offsetWidth !== 370){
+            popups.value.is_sidebar_open = false
+        }
+        
+    }
     return ( 
         <div className="device-container">
             <div className="device-head">
@@ -10,7 +18,7 @@ function Device() {
                     <AddDevice />
                     <input type="text" autoComplete="" placeholder="Search devices"/>
                 </div>
-                <button type="button" className="device-btn" onClick={() => is_sidebar_open.value = false}>
+                <button type="button" className="device-btn" onClick={() => popups.value = {...popups.value, is_sidebar_open: false}}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -22,7 +30,7 @@ function Device() {
                 <ul>
                     {    
                         devices.value.map(device => (
-                            <li key={device.id}>
+                            <li key={device.id} onClick={() => handle_btn_click(device)}>
                                 <div className="device-name">
                                     <span>{device.name}</span>
                                     <span>{device.uniqueId}</span>

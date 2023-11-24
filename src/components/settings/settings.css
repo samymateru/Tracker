@@ -81,3 +81,10 @@
     width: 24px;
     aspect-ratio: 1 / 1;
 }
+
+.settings-nav{
+    display: flex;
+    padding-inline: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+}

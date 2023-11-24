@@ -2,9 +2,12 @@ import { useEffect } from 'react'
 import {user, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
+import Device from './util/device/device'
+import { io } from "socket.io-client";
 
 function App() {
   const navigate = useNavigate();
+  const socket = io('ws://localhost:5000')
   async function check(){
     const response = await fetch("/api/session");
     if(response.status === 200){
@@ -28,6 +31,9 @@ function App() {
 
   }
   useEffect(() => {
+    socket.on('message', (message) => {
+      console.log(message)
+    });
       check();
   }, [])
 
@@ -36,7 +42,10 @@ function App() {
   return (
     <>
       <Outlet/>
+      <Device/>
     </>
+
+    
   )
 }
 
