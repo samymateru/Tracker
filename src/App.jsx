@@ -3,6 +3,7 @@ import {user, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
+import { popups } from './state'
 
 
 function App() {
@@ -34,9 +35,11 @@ function App() {
     const socket = new WebSocket(`${protocol}//localhost:8082/api/socket`);
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log(data)
+      
+        console.log(data.positions)
+      
+      
     };
-    console.log(socket)
       check();
   }, [])
 
