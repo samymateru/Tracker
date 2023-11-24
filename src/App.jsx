@@ -3,11 +3,10 @@ import {user, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
-import { io } from "socket.io-client";
+
 
 function App() {
   const navigate = useNavigate();
-  const socket = io('ws://localhost:5000')
   async function check(){
     const response = await fetch("/api/session");
     if(response.status === 200){
@@ -31,9 +30,13 @@ function App() {
 
   }
   useEffect(() => {
-    socket.on('message', (message) => {
-      console.log(message)
-    });
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const socket = new WebSocket(`${protocol}//localhost:8082/api/socket`);
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log(data)
+    };
+    console.log(socket)
       check();
   }, [])
 
