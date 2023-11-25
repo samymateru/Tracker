@@ -36,7 +36,7 @@ function App() {
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       
-        console.log(data.positions)
+        console.log(data)
       
       
     };
