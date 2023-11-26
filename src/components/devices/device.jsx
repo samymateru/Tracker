@@ -31,6 +31,7 @@ function Device() {
                     {    
                         devices.value.map(device => (
                             <li key={device.id} onClick={() => handle_btn_click(device)}>
+                                
                                 <div className="device-name">
                                     <span>{device.name}</span>
                                     <span>{device.uniqueId}</span>

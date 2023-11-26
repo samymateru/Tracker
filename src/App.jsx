@@ -37,9 +37,14 @@ function App() {
       const data = JSON.parse(event.data);
       if (data.positions){
           data.positions.map((element) => {
-            console.log(element)
+            console.log(element.deviceId)
+            // devices.value.map((device) => {
+            //   {(device.id === 18) ? device = {...device, name: "fuck you"} : ""}
+            //   console.log(device)
+            // })
           })
       }
+     
       
       
     };
