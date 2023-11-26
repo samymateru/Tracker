@@ -35,9 +35,7 @@ function App() {
     const socket = new WebSocket(`${protocol}//localhost:8082/api/socket`);
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      if(data.positions){
-        console.log("Receiveing position data")
-      }
+      
       
       
     };
