@@ -36,6 +36,7 @@ function App() {
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.positions){
+          console.log(data.positions.id)
         console.log("get pos")
       }
       
