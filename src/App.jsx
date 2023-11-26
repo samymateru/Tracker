@@ -38,10 +38,10 @@ function App() {
       if (data.positions){
           data.positions.map((element) => {
             console.log(element.deviceId)
-            // devices.value.map((device) => {
-            //   {(device.id === 18) ? device = {...device, name: "fuck you"} : ""}
-            //   console.log(device)
-            // })
+            devices.value.map((device) => {
+              {(device.id === element.deviceId) ? device = {...device, name: "fuck you"} : ""}
+              console.log(device)
+            })
           })
       }
      
