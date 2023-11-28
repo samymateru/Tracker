@@ -4,6 +4,7 @@ import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
 import { popups } from './state'
+import SelectDemo from './util/select/select'
 
 
 function App() {
@@ -39,8 +40,8 @@ function App() {
           data.positions.map((element) => {
             console.log(element.deviceId)
             devices.value.map((device) => {
-              {(device.id === element.deviceId) ? device = {...device, name: "fuck you"} : ""}
-              console.log(device)
+              // {(device.id === element.deviceId) ? device = {...device, name: "fuck you"} : ""}
+              console.log(data)
             })
           })
       }
@@ -57,6 +58,7 @@ function App() {
     <>
       <Outlet/>
       <Device/>
+      {/* <SelectDemo/> */}
     </>
 
     
