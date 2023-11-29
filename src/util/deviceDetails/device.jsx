@@ -38,7 +38,7 @@ function Device() {
             {
                 positions.value.map((pos) => (
                     (popups.value.current_device.id === pos.deviceId) ?
-                        <>
+                        (<>
                             <div className="device-header">
                                 <h3>{popups.value.current_device.name}</h3>
                                 <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
@@ -61,10 +61,10 @@ function Device() {
                                     <div><span>{pos.attributes.motion ? "On" : "Off"}</span></div>
                                 </div>
                             </div>
-                        </>
+                        </>)
                         :
-                        <>
-                            <div className="device-header">
+                       ( <>
+                         <div className="device-header">
                                 <h3>{popups.value.current_device.name}</h3>
                                 <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
                             </div>
@@ -87,7 +87,7 @@ function Device() {
                                 </div>
                                 
                             </div>
-                        </>
+                        </>)
                 ))
             }
                          
