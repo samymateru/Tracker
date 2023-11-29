@@ -34,7 +34,7 @@ function Device() {
     }
     
     return ( 
-        <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"230px"}}>
+        <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
             {
                 positions.value.map((pos) => (
                     (popups.value.current_device.id === pos.deviceId) ?
