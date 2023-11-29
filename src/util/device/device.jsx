@@ -29,7 +29,11 @@ function Device() {
                                 </div>
                                 <div className="device-data">
                                     <div><span>Motion</span></div>
-                                    <div><span>{pos.attributes.motion}</span></div>
+                                    <div><span>{pos.attributes.distance}</span></div>
+                                </div>
+                                <div className="device-data">
+                                    <div><span>Motion</span></div>
+                                    <div><span>Motion</span></div>
                                 </div>
                             </div>
                         </>
