@@ -37,9 +37,10 @@ function App() {
       const data = JSON.parse(event.data);
       if (data.positions){
           positions.value = data.positions
+          console.log(positions.value)
       }
 
-      console.log(positions.value)
+      
      
       
       
