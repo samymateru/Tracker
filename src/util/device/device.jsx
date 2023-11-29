@@ -27,6 +27,10 @@ function Device() {
                                     <div><span>Ignition</span></div>
                                     <div><span>{pos.attributes.ignition}</span></div>
                                 </div>
+                                <div className="device-data">
+                                    <div><span>Motion</span></div>
+                                    <div><span>{pos.attributes.motion}</span></div>
+                                </div>
                             </div>
                         </>
                         :
