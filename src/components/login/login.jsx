@@ -51,11 +51,10 @@ const Login = () => {
     const name = fullName.current.value
     const email = user_email.current.value
     const password = passWord_register.current.value
-    const administrator  = true
     const response = await fetch('/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({name, email, password, administrator}),
+      body: JSON.stringify({name, email, password}),
     });
     if (response.ok) {
       console.log(await response.json())
