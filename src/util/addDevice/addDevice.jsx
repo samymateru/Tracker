@@ -2,6 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { devices } from '../../state';
 import { useRef } from 'react';
+import { popups } from '../../state';
 import './addDevice.css';
 
 function AddDevice(){
@@ -35,7 +36,7 @@ function AddDevice(){
     return(
         <Dialog.Root>
         <Dialog.Trigger asChild>
-            <button type="button" className="device-btn">
+            <button type="button" className="device-btn" onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>

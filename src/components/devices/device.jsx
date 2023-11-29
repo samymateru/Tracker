@@ -18,7 +18,7 @@ function Device() {
                     <AddDevice />
                     <input type="text" autoComplete="" placeholder="Search devices"/>
                 </div>
-                <button type="button" className="device-btn" onClick={() => popups.value = {...popups.value, is_sidebar_open: false}}>
+                <button type="button" className="device-btn" onClick={() => {popups.value = {...popups.value, is_sidebar_open: false}; popups.value = {...popups.value, is_device_pop_open: false} }}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
