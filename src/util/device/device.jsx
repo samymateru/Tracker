@@ -13,15 +13,15 @@ function Device() {
             <div className="device-main">
                 <div className="device-data">
                     <div><span>Speed</span></div>
-                    <div><span>{popups.value.device_pop_data.speed}</span></div>
+                    {/* <div><span>{popups.value.device_pop_data.speed}</span></div> */}
                 </div>
                 <div className="device-data">
                     <div><span>Distance</span></div>
-                    <div><span>{popups.value.device_pop_data.distance}</span></div>
+                    {/* <div><span>{popups.value.device_pop_data.distance}</span></div> */}
                 </div>
                 <div className="device-data">
                     <div><span>Notifications</span></div>
-                    <div><span>{popups.value.device_pop_data.notifications}</span></div>
+                    {/* <div><span>{popups.value.device_pop_data.notifications}</span></div> */}
                 </div>
             </div>
             <div className="device-footer">
