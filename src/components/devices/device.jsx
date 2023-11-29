@@ -4,7 +4,7 @@ import AddDevice from "../../util/addDevice/addDevice";
 import { popups } from "../../state";
 function Device() {
     function handle_btn_click(e){
-        popups.value = {...popups.value, is_device_pop_open: true}
+        popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         const sidebar = document.querySelector(".sidebar");
         if(sidebar.offsetWidth !== 370){
             popups.value.is_sidebar_open = false
