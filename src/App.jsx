@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {user, positions} from "./state"
+import {user, positions, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
@@ -37,7 +37,6 @@ function App() {
       const data = JSON.parse(event.data);
       if (data.positions){
           positions.value = data.positions
-          console.log(positions.value)
       }
 
       
