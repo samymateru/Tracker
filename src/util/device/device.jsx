@@ -7,8 +7,8 @@ function Device() {
     return ( 
         <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"230px"}}>
             {
-                positions.value.map((pos) => {
-                    if (popups.value.current_device.id === pos.deviceId){
+                positions.value.map((pos) => (
+                    (popups.value.current_device.id === pos.deviceId) ?
                         <>
                             <div className="device-header">
                                 <h3>{popups.value.current_device.name}</h3>
@@ -29,9 +29,9 @@ function Device() {
                                 </div>
                             </div>
                         </>
-                       
-                    }
-                })
+                        :
+                        ""
+                ))
             }
                          
               
