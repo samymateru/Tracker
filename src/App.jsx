@@ -1,13 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {user, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
-import { popups } from './state'
-import SelectDemo from './util/select/select'
 
 
 function App() {
+
   const navigate = useNavigate();
   async function check(){
     const response = await fetch("/api/session");
@@ -40,8 +39,8 @@ function App() {
           data.positions.map((element) => {
             console.log(element.deviceId)
             devices.value.map((device) => {
-              // {(device.id === element.deviceId) ? device = {...device, name: "fuck you"} : ""}
-              console.log(data)
+              {(device.id === element.deviceId) ? device = {...device, positions: data.positions} : ""}
+              console.log(devices.value)
             })
           })
       }
@@ -58,7 +57,7 @@ function App() {
     <>
       <Outlet/>
       <Device/>
-      {/* <SelectDemo/> */}
+
     </>
 
     

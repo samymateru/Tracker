@@ -1,46 +1,167 @@
-import React from 'react';
-import * as Select from '@radix-ui/react-select';
-import classnames from 'classnames';
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
-import './select.css';
+import React, { useEffect, useRef, useState } from "react";
+import "./select.css"
 
-const SelectDemo = () => (
-  <Select.Root>
-    <Select.Trigger className="SelectTrigger" aria-label="Food">
-      <Select.Value placeholder="Select a fruit…" />
-      <Select.Icon className="SelectIcon">
-        <ChevronDownIcon />
-      </Select.Icon>
-    </Select.Trigger>
-    <Select.Portal>
-      <Select.Content className="SelectContent">
-        <Select.ScrollUpButton className="SelectScrollButton">
-          <ChevronUpIcon />
-        </Select.ScrollUpButton>
-        <Select.Viewport className="SelectViewport">
-          <Select.Group>
-            <Select.Label className="SelectLabel">Fruits</Select.Label>
-            <SelectItem value="apple">Apple</SelectItem>
-            <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
-          </Select.Group>
-        </Select.Viewport>
-      </Select.Content>
-    </Select.Portal>
-  </Select.Root>
-);
+// Icon component
+const Icon = ({ isOpen }) => {
+    return (
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" className={isOpen ? 'translate' : ''}>
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    );
+};
 
-const SelectItem = React.forwardRef(({ children, className, ...props }, forwardedRef) => {
-  return (
-    <Select.Item className={classnames('SelectItem', className)} {...props} ref={forwardedRef}>
-      <Select.ItemText>{children}</Select.ItemText>
-      <Select.ItemIndicator className="SelectItemIndicator">
-        <CheckIcon />
-      </Select.ItemIndicator>
-    </Select.Item>
-  );
-});
+// CloseIcon component
+const CloseIcon = () => {
+    return (
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    );
+};
 
-export default SelectDemo;
+// CustomSelect component
+const CustomSelect = ({ placeHolder, options, isMulti, isSearchable, onChange, align }) => {
+    // State variables using React hooks
+    const [showMenu, setShowMenu] = useState(false); // Controls the visibility of the dropdown menu
+    const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null); // Stores the selected value(s)
+    const [searchValue, setSearchValue] = useState(""); // Stores the value entered in the search input
+    const searchRef = useRef(); // Reference to the search input element
+    const inputRef = useRef(); // Reference to the custom select input element
+
+    useEffect(() => {
+        setSearchValue("");
+        if (showMenu && searchRef.current) {
+            searchRef.current.focus();
+        }
+    }, [showMenu]);
+
+    useEffect(() => {
+        const handler = (e) => {
+            if (inputRef.current && !inputRef.current.contains(e.target)) {
+                setShowMenu(false);
+            }
+        };
+
+        window.addEventListener("click", handler);
+        return () => {
+            window.removeEventListener("click", handler);
+        };
+    });
+
+    const handleInputClick = (e) => {
+        setShowMenu(!showMenu);
+    };
+
+    const getDisplay = () => {
+        if (!selectedValue || selectedValue.length === 0) {
+            return placeHolder;
+        }
+        if (isMulti) {
+            return (
+                <div className="dropdown-tags">
+                    {
+                        selectedValue.map((option, index) => (
+                            <div key={`${option.value}-${index}`} className="dropdown-tag-item">
+                                {option.label}
+                                <span onClick={(e) => onTagRemove(e, option)} className="dropdown-tag-close" >
+                                    <CloseIcon />
+                                </span>
+                            </div>
+                        ))
+                    }
+                </div>
+            );
+        }
+        return selectedValue.label;
+    };
+
+    const removeOption = (option) => {
+        return selectedValue.filter((o) => o.value !== option.value);
+    };
+
+    const onTagRemove = (e, option) => {
+        e.stopPropagation();
+        const newValue = removeOption(option);
+        setSelectedValue(newValue);
+        onChange(newValue);
+    };
+
+    const onItemClick = (option) => {
+        let newValue;
+        if (isMulti) {
+            if (selectedValue.findIndex((o) => o.value === option.value) >= 0) {
+                newValue = removeOption(option);
+            } else {
+                newValue = [...selectedValue, option];
+            }
+        } else {
+            newValue = option;
+        }
+        setSelectedValue(newValue);
+        onChange(newValue);
+    };
+
+    const isSelected = (option) => {
+        if (isMulti) {
+            return selectedValue.filter((o) => o.value === option.value).length > 0;
+        }
+
+        if (!selectedValue) {
+            return false;
+        }
+
+        return selectedValue.value === option.value;
+    };
+
+    const onSearch = (e) => {
+        setSearchValue(e.target.value);
+    };
+
+    const getOptions = () => {
+        if (!searchValue) {
+            return options;
+        }
+
+        return options.filter(
+            (option) =>
+                option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+        );
+    };
+
+    return (
+        <div className="custom--dropdown-container">
+
+            <div ref={inputRef} onClick={handleInputClick} className="dropdown-input">
+                <div className={`dropdown-selected-value ${!selectedValue || selectedValue.length === 0 ? 'placeholder' : ''}`}>{getDisplay()}</div>
+                <div className="dropdown-tools">
+                    <div className="dropdown-tool">
+                        <Icon isOpen={showMenu} />
+                    </div>
+                </div>
+            </div>
+
+            {
+                showMenu && (
+                    <div className={`dropdown-menu alignment--${align || 'auto'}`}>
+                        {
+                            isSearchable && (
+                                <div className="search-box">
+                                    <input className="form-control" onChange={onSearch} value={searchValue} ref={searchRef} />
+                                </div>
+                            )
+                        }
+                        {
+                            getOptions().map((option) => (
+                                <div onClick={() => onItemClick(option)} key={option.value} className={`dropdown-item ${isSelected(option) && "selected"}`} >
+                                    {option.label}
+                                </div>
+                            ))
+                        }
+                    </div>
+                )
+            }
+        </div>
+    );
+}
+
+export default CustomSelect;
