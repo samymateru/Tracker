@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {user, devices} from "./state"
+import {user, positions} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
 import Device from './util/device/device'
@@ -36,14 +36,10 @@ function App() {
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.positions){
-          data.positions.map((element) => {
-            console.log(element.deviceId)
-            devices.value.map((device) => {
-              {(device.id === element.deviceId) ? device = {...device, positions: data.positions} : ""}
-              console.log(devices.value)
-            })
-          })
+          positions.value = data.positions
       }
+
+      console.log(positions.value)
      
       
       
