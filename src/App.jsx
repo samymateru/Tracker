@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import {user, positions, devices} from "./state"
 import './App.css'
 import { Outlet, useNavigate } from 'react-router'
-import Device from './util/device/device'
-
+import Device from './util/deviceDetails/device'
 
 function App() {
 
@@ -31,6 +30,7 @@ function App() {
 
   }
   useEffect(() => {
+    
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const socket = new WebSocket(`${protocol}//localhost:8082/api/socket`);
     socket.onmessage = (event) => {
@@ -52,6 +52,7 @@ function App() {
   
   return (
     <>
+
       <Outlet/>
       <Device/>
 
