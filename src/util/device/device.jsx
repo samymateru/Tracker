@@ -49,9 +49,14 @@ function Device() {
                                     <div><span>None</span></div>
                                 </div>
                                 <div className="device-data">
-                                    <div><span>Notifications</span></div>
+                                    <div><span>Ignition</span></div>
                                     <div><span>None</span></div>
                                 </div>
+                                <div className="device-data">
+                                    <div><span>Motion</span></div>
+                                    <div><span>None</span></div>
+                                </div>
+                                
                             </div>
                         </>
                 ))
