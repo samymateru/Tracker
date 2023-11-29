@@ -1,8 +1,35 @@
 import { Cross1Icon } from "@radix-ui/react-icons";
-import { popups, positions } from "../../state";
+import { popups, positions, devices } from "../../state";
 import "./device.css"
 
 function Device() {
+    async function delete_device(){
+        try{
+            const res = await fetch(`/api/devices/${popups.value.current_device.id}`, {
+                method: "DELETE",
+            });
+            if(res.status === 204){
+                const device_response = await fetch('/api/devices');
+                if(device_response.ok){
+                    const device_list = await device_response.json();
+                    console.log(device_list)
+                    devices.value = device_list
+                }
+                else{
+                    console.log("error")
+                }
+            }
+            else{
+                console.log("error")
+            }
+            popups.value = {...popups.value, is_device_pop_open: false}
+        }
+        catch{
+            console.log("Error")
+        }
+        
+        
+    }
     
     return ( 
         <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"230px"}}>
@@ -64,7 +91,7 @@ function Device() {
                          
               
             <div className="device-footer">
-                <button>
+                <button onClick={() => delete_device()}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M6 7V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

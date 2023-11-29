@@ -1,5 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
+import { devices } from '../../state';
 import { useRef } from 'react';
 import './addDevice.css';
 
@@ -16,7 +17,20 @@ function AddDevice(){
                 body: JSON.stringify({name, uniqueId})
         });
 
-        console.log(add_device_response)
+        if(add_device_response.status === 200){
+            const device_response = await fetch('/api/devices');
+            if(device_response.ok){
+                const device_list = await device_response.json();
+                devices.value = device_list
+            }
+            else{
+                console.log("error")
+            }
+        }
+
+        else if(add_device_response.status === 400){
+                console.log("device exists")
+        }
     }
     return(
         <Dialog.Root>
