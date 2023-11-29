@@ -30,7 +30,26 @@ function Device() {
                             </div>
                         </>
                         :
-                        ""
+                        <>
+                            <div className="device-header">
+                                <h3>{popups.value.current_device.name}</h3>
+                                <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
+                            </div>
+                            <div className="device-main">
+                                <div className="device-data">
+                                    <div><span>Speed</span></div>
+                                    <div><span>None</span></div>
+                                </div>
+                                <div className="device-data">
+                                    <div><span>Distance</span></div>
+                                    <div><span>None</span></div>
+                                </div>
+                                <div className="device-data">
+                                    <div><span>Notifications</span></div>
+                                    <div><span>None</span></div>
+                                </div>
+                            </div>
+                        </>
                 ))
             }
                          
