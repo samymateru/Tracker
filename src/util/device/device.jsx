@@ -17,15 +17,15 @@ function Device() {
                             <div className="device-main">
                                 <div className="device-data">
                                     <div><span>Speed</span></div>
-                                    <div><span>100</span></div>
+                                    <div><span>{pos.speed}</span></div>
                                 </div>
                                 <div className="device-data">
                                     <div><span>Distance</span></div>
-                                    <div><span>1000</span></div>
+                                    <div><span>{pos.attributes.distance}</span></div>
                                 </div>
                                 <div className="device-data">
-                                    <div><span>Notifications</span></div>
-                                    <div><span>100</span></div>
+                                    <div><span>Ignition</span></div>
+                                    <div><span>{pos.attributes.ignition}</span></div>
                                 </div>
                             </div>
                         </>
