@@ -40,7 +40,7 @@ function deviceDetails() {
             {
         (positions.value.length !== 0) ?
         
-        positions.value.map(pos => (
+        positions.value.map(pos => {
             (pos.deviceId === popups.value.current_device.id) ?
                 (   
                     <>
@@ -164,7 +164,7 @@ function deviceDetails() {
                             </div> 
                     </>
                 )
-        ))
+         })
         :
             (   
                 <>
