@@ -36,6 +36,8 @@ function deviceDetails() {
     
 
         return(
+        <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
+            {
         (positions.value.length !== 0) ?
         
         positions.value.map(pos => (
@@ -43,7 +45,6 @@ function deviceDetails() {
                 (   
                     <>
                         {console.log(`${pos.deviceId}  ${popups.value.current_device.id}`)}
-                        <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
                             <div className="device-header">
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
@@ -100,13 +101,11 @@ function deviceDetails() {
                                     </button>
                                 </Commands>
                             </div> 
-                        </div>
                     </>
                 )
             :
                 (   
                     <>
-                        <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
                             <div className="device-header">
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
@@ -163,14 +162,12 @@ function deviceDetails() {
                                     </button>
                                 </Commands>
                             </div> 
-                        </div>
                     </>
                 )
         ))
         :
             (   
                 <>
-                    <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
                         <div className="device-header">
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
@@ -227,9 +224,10 @@ function deviceDetails() {
                                 </button>
                             </Commands>
                         </div>
-                    </div>
                 </>
             )
+        }
+        </div>
         );
 
                                  
