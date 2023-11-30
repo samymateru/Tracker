@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import DeviceDetails from "../../util/deviceDetails/device";
 function Device() {
     function handle_btn_click(e){
+        console.log(positions.value)
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
             positions.value.map(pos => {
