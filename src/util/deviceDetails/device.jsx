@@ -51,7 +51,7 @@ function deviceDetails() {
                             </div>
                             <div className="device-data">
                                 <div><span>Distance</span></div>
-                                <div><span>{current_position.value.attributes.distance || "None"}</span></div>
+                                <div><span>{ "None"}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Ignition</span></div>
