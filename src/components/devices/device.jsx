@@ -14,14 +14,8 @@ function Device() {
             }
             else{
                 current_position.value = {}
-            }
-
-            console.log(current_position.value)
-            
+            }   
         }
-
-        console.log(current_position.value)
-
         const sidebar = document.querySelector(".sidebar");
         if(sidebar.offsetWidth !== 370){
             popups.value.is_sidebar_open = false
