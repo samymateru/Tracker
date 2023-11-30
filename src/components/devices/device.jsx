@@ -12,9 +12,11 @@ function Device() {
                 console.log(`${pos.deviceId}  ${e.id}`)
                 if(pos.deviceId === e.id){{
                     current_position.value = pos
+                    return
                 }}
                 else{
                     current_position.value = {}
+                    return
                 }
             })
             console.log(current_position.value)
