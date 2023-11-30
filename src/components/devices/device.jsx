@@ -9,9 +9,10 @@ function Device() {
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
             const position = positions.value.filter(pos => pos.deviceId === e)
+            console.log(position)
             current_position.value = [...current_position.value, position]
         }
-        
+
         const sidebar = document.querySelector(".sidebar");
         if(sidebar.offsetWidth !== 370){
             popups.value.is_sidebar_open = false

@@ -38,11 +38,6 @@ function App() {
       if (data.positions){
           positions.value = data.positions
       }
-      console.log(positions.value)
-
-      
-     
-      
       
     };
       check();
