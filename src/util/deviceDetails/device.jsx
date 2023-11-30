@@ -46,7 +46,7 @@ function deviceDetails() {
                             <div className="device-main">
                             <div className="device-data">
                                 <div><span>Speed</span></div>
-                                <div><span>{current_position.value.speed !== undefined ? current_position.value.speed : "None"}</span></div>
+                                <div><span>{current_position.value !== undefined ? current_position.value.speed : "None"}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Distance</span></div>
