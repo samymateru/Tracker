@@ -39,7 +39,7 @@ function deviceDetails() {
                
                 <>
                     <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
-                        {console.log(current_position.value)}
+                        {console.log(current_position.value.attributes)}
                         <div className="device-header">
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
@@ -55,11 +55,11 @@ function deviceDetails() {
                             </div>
                             <div className="device-data">
                                 <div><span>Ignition</span></div>
-                                <div><span>{current_position.value.attributes.ignition ? "On" : "Off" || "None"}</span></div>
+                                <div><span>{"None"}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Motion</span></div>
-                                <div><span>{current_position.value.attributes.motion ? "On" : "Off" || "None"}</span></div>
+                                <div><span>{"None"}</span></div>
                             </div>
                         </div> 
                         <div className="device-footer">
