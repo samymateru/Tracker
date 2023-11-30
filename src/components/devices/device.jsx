@@ -8,8 +8,10 @@ function Device() {
     function handle_btn_click(e){
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
-            const position = positions.value.filter(pos => pos.deviceId === e)
-            console.log(position)
+            positions.value.map(pos => {
+                console.log(pos)
+            })
+            
             current_position.value = [...current_position.value, position]
         }
 
