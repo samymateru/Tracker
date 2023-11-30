@@ -9,8 +9,7 @@ function Device() {
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
             positions.value.map(pos => {
-                console.log(e)
-                if(pos.deviceId === e){{
+                if(pos.deviceId === e.id){{
                     console.log(pos)
                 }}
             })
