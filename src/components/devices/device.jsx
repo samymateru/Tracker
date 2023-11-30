@@ -12,6 +12,8 @@ function Device() {
             current_position.value = position
         }
 
+        console.log(current_position.value)
+
         const sidebar = document.querySelector(".sidebar");
         if(sidebar.offsetWidth !== 370){
             popups.value.is_sidebar_open = false
