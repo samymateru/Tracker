@@ -50,7 +50,7 @@ function deviceDetails() {
                             </div>
                             <div className="device-data">
                                 <div><span>Distance</span></div>
-                                <div><span>{current_position.value.attributes}</span></div>
+                                <div><span>{current_position.value.attributes !== null ? console.log("not") : console.log("")}</span></div>
                             </div>
                             {/* <div className="device-data">
                                 <div><span>Ignition</span></div>
