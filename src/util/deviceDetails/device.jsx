@@ -51,7 +51,7 @@ function deviceDetails() {
                             <div className="device-main">
                             <div className="device-data">
                                 <div><span>Speed</span></div>
-                                <div><span>{pos.speed}</span></div>
+                                <div><span>{console.log(pos.speed)}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Distance</span></div>
