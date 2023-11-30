@@ -50,15 +50,15 @@ function deviceDetails() {
                             </div>
                             <div className="device-data">
                                 <div><span>Distance</span></div>
-                                <div><span>{current_position.value !== undefined ? current_position.value.attributes.distance : "None"}</span></div>
+                                <div><span>{current_position.value.attributes !== undefined ? current_position.value.attributes.distance : "None"}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Ignition</span></div>
-                                <div><span>{current_position.value !== undefined ? current_position.value.attributes.ignition ? "On" : "Off" : "None"}</span></div>
+                                <div><span>{current_position.value.attributes !== undefined ? current_position.value.attributes.ignition ? "On" : "Off" : "None"}</span></div>
                             </div>
                             <div className="device-data">
                                 <div><span>Motion</span></div>
-                                <div><span>{current_position.value !== undefined ? current_position.value.attributes.motion ? "On" : "Off" : "None"}</span></div>
+                                <div><span>{current_position.value.attributes !== undefined ? current_position.value.attributes.motion ? "On" : "Off" : "None"}</span></div>
                             </div>
                         </div> 
                         <div className="device-footer">
