@@ -9,6 +9,7 @@ function Device() {
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
             const position = positions.value.find(pos => pos.deviceId === e.id);
+            console.log(position)
             if(position === undefined){
                 current_position.value = {}
             }
