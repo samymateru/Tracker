@@ -14,7 +14,7 @@ function Device() {
                     current_position.value = pos
                 }}
                 else{
-                    current_position.value = []
+                    current_position.value = {}
                 }
             })
 
