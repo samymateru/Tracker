@@ -3,6 +3,7 @@ import { devices } from "../../state";
 import AddDevice from "../../util/addDevice/addDevice";
 import { popups } from "../../state";
 import { motion } from "framer-motion"
+import DeviceDetails from "../../util/deviceDetails/device";
 function Device() {
     function handle_btn_click(e){
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
@@ -13,6 +14,7 @@ function Device() {
         
     }
     return ( 
+        <>
         <div className="device-container">
             <div className="device-head">
                 <div className="device-search">
@@ -54,6 +56,8 @@ function Device() {
                 </ul>
             </div>
         </div>
+        <DeviceDetails/>
+        </>
      );
 }
 

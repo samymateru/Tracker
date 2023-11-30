@@ -9,5 +9,4 @@ export let popups = signal({
 })
 
 export let positions = signal([
-    
 ]);
