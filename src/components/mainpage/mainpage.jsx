@@ -1,5 +1,6 @@
 import "./mainpage.css"
 import Tab from "../../util/tabs/tabs";
+import Map from "react-map-gl";
 import { popups } from "../../state";
 
 
@@ -19,6 +20,18 @@ function Mainpage() {
                         <g id="SVGRepo_iconCarrier"> <path d="M4 6H20M7 12H17M9 18H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
                     </svg>
                 </button>
+                <div className="map-container">
+                    <Map
+                        mapboxAccessToken="pk.eyJ1Ijoic2FtdWVsbWF0ZXJ1IiwiYSI6ImNsb3F2emd0NzAwcGQyanBxenFoNDVqazcifQ.JGGEd0tKGLOVCBWkM2KAcA"
+                        initialViewState={{
+                            longitude: -122.4,
+                            latitude: 37.8,
+                            zoom: 14
+                        }}
+                        style={{width: "100%", height: "100%"}}
+                        mapStyle="mapbox://styles/mapbox/streets-v9"
+                    />
+                </div>
             </section>
         </>
      
