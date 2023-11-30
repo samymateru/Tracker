@@ -39,7 +39,6 @@ function deviceDetails() {
                
                 <>
                     <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
-                        {console.log(current_position.value.attributes)}
                         <div className="device-header">
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>

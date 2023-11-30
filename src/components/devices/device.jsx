@@ -12,9 +12,11 @@ function Device() {
                 if(pos.deviceId === e.id){{
                     current_position.value = pos
                 }}
+                else{
+                    current_position.value = []
+                }
             })
-            
-            console.log(current_position.value)
+
         }
 
         const sidebar = document.querySelector(".sidebar");
