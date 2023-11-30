@@ -1,12 +1,17 @@
 import "./device.css"
 import { devices } from "../../state";
 import AddDevice from "../../util/addDevice/addDevice";
-import { popups } from "../../state";
+import { popups, current_position, positions } from "../../state";
 import { motion } from "framer-motion"
 import DeviceDetails from "../../util/deviceDetails/device";
 function Device() {
     function handle_btn_click(e){
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
+        if(positions.value.length !== 0){
+            const position = positions.value.filter(pos => pos.deviceId === e)
+            current_position.value = [...current_position.value, position]
+        }
+        
         const sidebar = document.querySelector(".sidebar");
         if(sidebar.offsetWidth !== 370){
             popups.value.is_sidebar_open = false
