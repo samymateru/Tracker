@@ -39,6 +39,7 @@ function deviceDetails() {
         (positions.value.length !== 0) ?
         
         positions.value.map(pos => (
+            console.log(`${pos.deviceId}  ${popups.value.current_device.id}`)
             (pos.deviceId === popups.value.current_device.id) ?
                 (   
                     <>
@@ -107,7 +108,6 @@ function deviceDetails() {
                     <>
                         <div className="device-wrapper" style={{top: popups.value.is_device_pop_open ? "0.5rem": "-"+"500px"}}>
                             <div className="device-header">
-                                {console.log(`${pos.deviceId}  ${popups.value.current_device.id}`)}
                             <h3>{popups.value.current_device.name}</h3>
                             <button onClick={() => popups.value = {...popups.value, is_device_pop_open: false}}><Cross1Icon color="black"/></button>
                             </div>
