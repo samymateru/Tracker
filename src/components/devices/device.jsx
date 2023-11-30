@@ -9,6 +9,7 @@ function Device() {
         popups.value = {...popups.value, is_device_pop_open: true, current_device: e}
         if(positions.value.length !== 0){
             positions.value.map(pos => {
+                console.log(`${pos.deviceId}  ${e.id}`)
                 if(pos.deviceId === e.id){{
                     current_position.value = pos
                 }}
