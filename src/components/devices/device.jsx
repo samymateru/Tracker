@@ -10,7 +10,7 @@ function Device() {
         if(positions.value.length !== 0){
             positions.value.map(pos => {
                 if(pos.deviceId === e.id){{
-                    current_position.value = [...current_position.value, pos]
+                    current_position.value = pos
                 }}
             })
             
