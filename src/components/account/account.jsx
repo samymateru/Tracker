@@ -1,7 +1,7 @@
 import "./account.css"
 import {user, devices} from "../../state"
 import { popups } from "../../state";
-import useDeleteCookie from "../../util/hooks/helpers";
+import {useDeleteCookie} from "../../util/hooks/helpers";
 import { useNavigate } from 'react-router'
 function Account() {
     const {value: username, deleteCookie} = useDeleteCookie("JSESSIONID");
